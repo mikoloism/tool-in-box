@@ -5,7 +5,7 @@ import { withThemeHoc, type ThemeHoc } from "./roll/theme";
 
 const MyComponent: React.FC<Props & ThemeHoc & AnotherHoc> = (props) => {
 	return (
-		<div style={(props as any).style}>
+		<div className=":uno: p-(3 l-24) bg-sky-900 text-sky-300 hover:(bg-amber-800 text-amber-300) sm:(border-green-300 border-solid) xl:(border-sky-300 border-solid) md:(border-amber-300 border-solid)">
 			<p>custom-props: {props.customProps}</p>
 			<p>theme-props: {props.themeProps}</p>
 			<p>another-props: {props.anotherProps}</p>
