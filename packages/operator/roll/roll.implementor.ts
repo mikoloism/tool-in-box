@@ -1,17 +1,5 @@
-type FnOut<In extends {}> =
-	| React.ReactElement
-	| JSX.Element
-	| React.ComponentType<In>
-	| Iterable<React.ReactElement>;
-
-type Fn<In extends {}, Out = FnOut<In>> = (
-	Component: React.ComponentType<In>
-) => (props: In) => Out;
-
-interface Rollable<In, Out> {
-	roll<T extends {}>(rolled: Fn<In & T, Out>): Rollable<In & T, Out>;
-	around<T>(Component: React.ComponentType<In & T>): React.ComponentType<In & T & Out>;
-}
+import type React from "react";
+import type { Fn, Rollable } from "./roll.interface";
 
 export class Roller<In extends {}, Out> implements Rollable<In, Out> {
 	private rolled: Fn<In, Out>;
